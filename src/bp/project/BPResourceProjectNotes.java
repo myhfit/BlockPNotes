@@ -23,7 +23,7 @@ public class BPResourceProjectNotes extends BPResourceProjectFile
 {
 	public final static String PRJTYPE_NOTES = "notes";
 
-	protected volatile Map<String, Object> m_stats = null;
+	protected volatile Map<String, Object> m_overview = null;
 
 	protected volatile List<BPTodoList> m_todos = null;
 
@@ -88,24 +88,24 @@ public class BPResourceProjectNotes extends BPResourceProjectFile
 	public Map<String, Object> getOverview()
 	{
 		Map<String, Object> rc = super.getOverview();
-		Map<String, Object> stats = m_stats;
-		if (stats != null)
-			rc.putAll(stats);
+		Map<String, Object> ow = m_overview;
+		if (ow != null)
+			rc.putAll(ow);
 		return rc;
 	}
 
 	public Map<String, Object> getStatistics()
 	{
-		Map<String, Object> rc = m_stats;
+		Map<String, Object> rc = m_overview;
 		if (rc == null)
 		{
-			rc = makeStatistics();
-			m_stats = rc;
+			rc = makeOverview();
+			m_overview = rc;
 		}
 		return rc;
 	}
 
-	protected Map<String, Object> makeStatistics()
+	protected Map<String, Object> makeOverview()
 	{
 		Map<String, Object> rc = new HashMap<String, Object>();
 
@@ -145,7 +145,7 @@ public class BPResourceProjectNotes extends BPResourceProjectFile
 
 	public void refreshNote(BPTodoList todolist, BPResource res)
 	{
-		makeStatistics();
+		makeOverview();
 	}
 
 	public void refreshByCache(BPTreeCacheNode<BPCacheDataFileSystem> root)
@@ -179,8 +179,8 @@ public class BPResourceProjectNotes extends BPResourceProjectFile
 		Std.debug("TodoList Cache:" + todos.size() + " Loaded in " + (ct2 - ct) + "ms");
 	}
 
-	public void refreshStatistics()
+	public void refreshOverview()
 	{
-		m_stats = makeStatistics();
+		m_overview = makeOverview();
 	}
 }
