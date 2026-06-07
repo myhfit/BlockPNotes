@@ -89,7 +89,7 @@ public class BPScheduleCalendar extends BPScheduleBase
 			return rc;
 		}
 
-		public Class<? extends BPSchedule> getScheduleClass()
+		public Class<? extends BPSchedule> getInstanceClass()
 		{
 			return BPScheduleCalendar.class;
 		}
