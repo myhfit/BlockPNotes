@@ -1,6 +1,6 @@
 package bp.format;
 
-public class BPFormatNotesJSON implements BPFormat
+public class BPFormatNotesJSON extends BPFormatBase
 {
 	public final static String FORMAT_NOTES_JSON = "NotesJSON";
 

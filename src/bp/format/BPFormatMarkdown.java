@@ -1,6 +1,6 @@
 package bp.format;
 
-public class BPFormatMarkdown implements BPFormat
+public class BPFormatMarkdown extends BPFormatBase
 {
 	public final static String FORMAT_MARKDOWN = "MarkDown";
 
